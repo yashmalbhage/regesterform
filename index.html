@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+        
+        .container img {
+            width: 100%;
+        }
+        
+        h2 {
+            text-align: center;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="./Untitled design(1).png" alt="">
+        <h2>Gradesway Registration</h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="role">Role:</label>
+            <select id="role" name="role" required>
+                <option value="" disabled selected>Select Role</option>
+                <option value="teacher">Teacher</option>
+                <option value="student">Student</option>
+            </select>
+
+            <div id="teacherFields" style="display: none;">
+                <label for="bachelor">Bachelor's Degree:</label>
+                <input type="text" id="bachelor" name="bachelor">
+
+                <label for="master">Master's Degree:</label>
+                <input type="text" id="master" name="master">
+
+                <label for="phd">PhD:</label>
+                <input type="text" id="phd" name="phd">
+
+                <label for="teachingUniversity">University where they teach:</label>
+                <input type="text" id="teachingUniversity" name="teachingUniversity">
+
+                <label for="teachingCollege">College where they teach:</label>
+                <input type="text" id="teachingCollege" name="teachingCollege">
+
+                <label for="subjects">Subjects they teach:</label>
+                <input type="text" id="subjects" name="subjects">
+            </div>
+
+            <div id="studentFields" style="display: none;">
+                <label for="university">University you study:</label>
+                <input type="text" id="university" name="university">
+
+                <label for="college">College you study:</label>
+                <input type="text" id="college" name="college">
+
+                <label for="course">Course:</label>
+                <input type="text" id="course" name="course">
+
+                <label for="class">Class:</label>
+                <input type="text" id="class" name="class">
+
+                <label for="uniPRN">University PRN no:</label>
+                <input type="text" id="uniPRN" name="uniPRN">
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("role").addEventListener("change", function() {
+            var role = this.value;
+            var teacherFields = document.getElementById("teacherFields");
+            var studentFields = document.getElementById("studentFields");
+
+            if (role === "teacher") {
+                teacherFields.style.display = "block";
+                studentFields.style.display = "none";
+            } else if (role === "student") {
+                teacherFields.style.display = "none";
+                studentFields.style.display = "block";
+            } else {
+                teacherFields.style.display = "none";
+                studentFields.style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>
